@@ -1,6 +1,22 @@
 # Terraform Variables for Claims Management System
 # This file defines all configurable parameters for the infrastructure
 
+# Terraform configuration
+terraform {
+  required_version = ">= 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Provider configuration
+provider "aws" {
+  region = var.aws_region
+}
+
 # Environment Configuration
 variable "environment" {
   description = "Deployment environment (dev, staging, prod)"
